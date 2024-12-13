@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+form {
+    display: block !important;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+form input, form button {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+}
+
+#totals {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+}
