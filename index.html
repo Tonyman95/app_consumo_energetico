@@ -3,65 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo Energético Simplificado</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Predicción Energética</title>
+    
 </head>
 <body>
-    <header>
-        <h1>Calculadora de Consumo Energético</h1>
-    </header>
-    <main>
-<!--Formulario-->
-        <h2>Introduzca los datos de sus electrodomésticos</h2>
-        <form id="energyForm">
-            <label for="appliance">Electrodoméstico:</label>
-            <input type="text" id="appliance" placeholder="Ej: Refrigerador" required><br><hr>
-            
-            <label for="power">Potencia (Watts):</label>
-            <input type="number" id="power" required><br><hr>
-            
-            <label for="time">Tiempo de Uso Semanal (Horas):</label>
-            <input type="number" id="time" required><br><hr>
-            
-            <label for="company">Empresa:</label>
-            <select name="company" id="company">
-                <option value="230">CGE</option>
-                <option value="240">Chilquinta</option>
-            </select><br><hr>
-            
-            <button type="button" id="addAppliance">Agregar</button>
-        </form>
-<!--matriz de datos-->
-        <h2>Electrodomésticos</h2>
-        <table id="appliancesTable" border="1">
+    <h1>Consumo Energético</h1>
+    <div class="input-section">
+        <label for="device">Electrodoméstico:</label>
+        <input type="text" id="device" placeholder="Ej. Refrigerador">
+        <label for="power">Potencia (W):</label>
+        <input type="number" id="power" placeholder="Ej. 1500">
+        <label for="duration">Horas de Uso por Día:</label>
+        <input type="number" id="duration" placeholder="Ej. 8">
+        <label for="company">Compañía Eléctrica:</label>
+        <select id="company">
+            <option value="220">Enel ($220/kWh)</option>
+            <option value="210">CGED ($210/kWh)</option>
+            <option value="230">Chilquinta ($230/kWh)</option>
+            <option value="240">Saesa ($240/kWh)</option>
+        </select>
+        <button onclick="addDeviceData()">Agregar Electrodoméstico</button>
+    </div>
+    <div class="results-section">
+        <h2>Resultados</h2>
+        <div class="chart-container">
+            <h3>Consumo Mensual por Electrodoméstico</h3>
+            <canvas id="chart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Proyección de Consumo Ajustado</h3>
+            <canvas id="prediction-chart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Tendencias de Consumo Semanal</h3>
+            <canvas id="trend-chart"></canvas>
+        </div>
+        <p id="summary"></p>
+        <h3>Matriz de Consumos</h3>
+        <table id="consumption-table">
             <thead>
                 <tr>
                     <th>Electrodoméstico</th>
-                    <th>Potencia (W)</th>
-                    <th>Tiempo (h)</th>
-                    <th>Consumo (kWh)</th>
-                    <th>Costo (pesos)</th>
+                    <th>Diario (kWh)</th>
+                    <th>Semanal (kWh)</th>
+                    <th>Mensual (kWh)</th>
+                    <th>Costo Mensual ($)</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
-
-        <div id="totals">
-            <h3>Totales:</h3>
-            <p>Consumo Total: <span id="totalEnergy">0</span> kWh</p>
-            <p>Costo Total: <span id="totalCost">0</span> pesos</p>
-        </div>
-        <div>
-<!--gráfica-->
-            <h3>Gráfica de Consumo</h3>
-            <canvas id="energyChart" width="400" height="200"></canvas>
-
-        </div>
-    </main>
-    <script src="script.js"></script>
+        <h3>Consejos</h3>
+        <ul id="advice-list"></ul>
+    </div>
+    <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    
-
 </body>
 </html>
